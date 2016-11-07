@@ -27,7 +27,7 @@ body {
 }
 
 a {
-	color:#595959;
+	color: #bcc3d0;
 	text-decoration: none;
 	font-size: 18px;
 }
@@ -58,8 +58,23 @@ p {
 
 .smarticon {
     position: relative;
-    margin-top: -3%; 
+    top: -70px;
+    /*margin-top: -5%;*/
+    border-bottom: 1px solid gray;
+    height: 50px;
+    /*background: cyan;*/
+    /*background-image: url("Images/simple.jpg");*/
+    background-color: black;
 }
+.smarticon h2 {
+    /*display: inline;*/
+    position: relative;
+    /*top: -4px;*/
+    text-align: center;
+    color: white;
+    /*margin-left: 200px;*/
+}
+
 
 .login form span {
 	background-color:   #70db70;
@@ -166,6 +181,7 @@ p {
   width: 250px;
   margin: 0 0 20px 10px;
   height: 40px;
+  
 }
 		/*chat page*/
 
@@ -174,12 +190,19 @@ p {
     height: 100%;
     width: 80%;
     float: left;
+    top: -70px;
 }
 #sidebar {
-    position: relative;
+    position: absolute;
     float: left;
-    width: 23%;
-    height: 100%;
+    width: 250px;
+    height: 667px;
+    left: 0;
+    top: 0;
+    background: #505d71;
+    /*background: yellow;*/
+    border: 1px solid green;
+    padding: 15px;
 }
 .channels{
      margin-left: 42%;
@@ -198,29 +221,28 @@ p {
     padding: 15px 20px;
     font-size: 16px;
     font-weight: 100;
-    color: #333333;
+    color: black;
     text-decoration: none;
     display: block;
     border-bottom: 1px solid #009933;
 }
 #sidebar ul li:hover, .channels  ul li:hover{
-    background:#70db70;
+    /*background:#70db70;*/
+    background: #445166;
+    color: #fff;
 } 
 
 
 
-#sidebar, .users{
+.users{
 	font-size: 18px;
 	font-weight: 100;
-    color: #4d4d4d;
+    color: white;
     text-decoration: none;
     display: block;
     transition:  background 0.3s ease-in-out;
     padding: 15px;
 
-    height: 100%;
-}
-.users {
     border-radius: 10px;
     box-shadow: 8px 6px 37px -6px rgba(0,0,0,0.75);
     max-width: 240px;
@@ -231,22 +253,24 @@ p {
 
 
 }
-.users li:hover{
-    border-radius: 10px;
-
-}
 .footer-panel{
 	position: absolute;
-    margin-left: 25%;
+    margin-left: 22.9%;
     margin-top: 42%;
-    width: 73%;
+    width: 77.2%;
     height: 23%;
-
+    padding: 4px;
+    border-top: 1px solid red;
+    bottom: -530px;
+    /*background: cyan;*/
 }
-
+/*
 .main-content {
     background-color: white;
     height: 90%;
+    width: 60%;
+    background: yellow;
+    
 }
 
 .addCode{
@@ -257,7 +281,7 @@ p {
 	color: #595959;
     background-color:  #f4a460;
 }
-
+*/
 #message{
     background-color: white;
 	color: #333333;
@@ -267,7 +291,7 @@ p {
     /*border-color: blue;*/
 	font-size: 16px;
 	position: relative;
-
+    
 }
 textarea::-webkit-input-placeholder { color: #333333;
 font:14px Verdana; }
@@ -348,9 +372,12 @@ font:14px Verdana; }
 
 .chat_name{
 	position: relative;
-    margin-left: 25%;
+    margin-left: 22.9%;
 	font: bold 20px Arial;
 	color:#dc143c;
+    background: gray;
+    height: 40px;
+    padding: 4px;
 }
 .chat_name input{
 	margin-left: 2%;
@@ -363,7 +390,11 @@ font:14px Verdana; }
     float: left;
     display: inline;
     width: 18%;
-    height: 85%;
+    height: 618px;
+    top: -100px;
+    border-left: 1px solid green;
+    border-bottom: 1px solid green;
+    padding-left: 15px;
 }
 #rightsidebar ul {
     padding: 0;
@@ -393,9 +424,9 @@ ul {
     position: absolute;
     margin-top: 1%;
     margin-left: 24%;
-    background-color: white;
-    height: 430px;
-    max-height: 430px;
+    background-color: whitesmoke;
+    height: 500px;
+    max-height: 500px;
     width: 74%;
     overflow: auto;
     overflow-y:auto;
@@ -413,18 +444,14 @@ ul {
     margin-right: 3px;
     margin-top: 20px;
 }
-.editMessage,.renameChannel  {
+.editMessage  {
     background-color: #009933;
 }
 .markFavourite{
     background-color: #f4a460;
 }
-.deleteMessage, .removeChannel{
+.deleteMessage {
     background-color: #dc143c;
-}
-.renameChannel, .removeChannel {
-    width: 35px;
-    margin-left: 15px; 
 }
 
 .selectMessage {
@@ -592,8 +619,10 @@ border-bottom: none;
 }
 
 .button28 {
-    float: right;
+  float: right;
   position: relative;
+    left: -30px;
+    top: -33px;
   display: inline-block;
   font-size: 90%;
   font-weight: 700;
@@ -603,7 +632,7 @@ border-bottom: none;
   padding: .5em 1em;
   outline: none;
   border-radius: 3px;
-  background:#32cd32;
+  background: black;
   box-shadow:
    0 1px rgba(255,255,255,.2) inset,
    0 3px 5px rgba(0,1,6,.5),
@@ -690,7 +719,7 @@ border-bottom: none;
 }
 
 .cont {
-    height: 100%;
+    height: 575px;
     width: 100%;
     display: block;
 }
@@ -757,7 +786,9 @@ border-bottom: none;
   width: 250px;
   margin: 0 0 20px 10px;
   height: 40px;
+  background-color:red;
   border-radius: 7px;
+  /*border:1px solid;*/
 }
 .group-container {
     display: block;
@@ -811,6 +842,8 @@ width: 340px;
     margin-top: 20px; 
     width: 73%;
     height: 23%;
+    background: gray;
+    border-top: 1px solid red;
 }
 }
 
@@ -926,6 +959,8 @@ margin-left: 10%;
     margin-top: 400px;
     width: 73%;
     height: 23%;
+    background: gray;
+    border-top: red;
 }
 }
 
@@ -960,3 +995,35 @@ blockquote {
 li > blockquote {
     transform : scale(0.7) translateX(-25%);
 }
+/*Windows 8 buttons*/
+.w8-button { transition: 0.2s all ease; -moz-transition: 0.2s all ease; -webkit-transition: 0.2s all ease; -o-transition: 0.2s all ease; -ms-transition: 0.2s all ease; }
+
+ 	/** Fonts */
+ 	@font-face {
+	    font-family: 'open_sans_lightregular';
+	    src: url('fonts/opensans-light-webfont.eot');
+	    src: url('fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+	         url('fonts/opensans-light-webfont.woff') format('woff'),
+	         url('fonts/opensans-light-webfont.ttf') format('truetype'),
+	         url('fonts/opensans-light-webfont.svg#open_sans_lightregular') format('svg');
+	    font-weight: 800;
+	    font-style: normal;
+	}
+
+ 	/** Buttons */
+ 	.w8-button {color: white; padding: 7px 15px 8px 15px; border: none; font-family: "open_sans_lightregular"; font-size: 13px; font-weight: bold; cursor: pointer; opacity: 0.9; }
+ 	
+ 	.w8-button:hover { opacity: 1; }	
+ 	.w8-button:active { color: white !important; background-color: #191919 !important; }
+
+ 	
+
+	.w8-button.red { background-color: #d9522c; }
+	.w8-button.green { background-color: #009900; }
+	.w8-button.pink { background-color: #ae193e; }
+	.w8-button.d-blue { background-color: #0099ab; }
+	.w8-button.yellow { background-color: #fba919; }
+	.w8-button.l-blue { background-color: #2d87ef; }
+	.w8-button.violet { background-color: #5b39b6; }
+	.w8-button.grey { background-color: #474747; }
+

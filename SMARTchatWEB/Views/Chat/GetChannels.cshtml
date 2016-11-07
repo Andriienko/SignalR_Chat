@@ -10,9 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SMARTchat | Сhat</title>
-    <link rel="stylesheet" href="~/Content/style.css" media="screen" type="text/css" />
-    <link rel="icon" href="~/Content/Images/smart.png" type="image/x-icon">
-    <link rel="shortcut icon" href="~/Content/Images/smart.png" type="image/x-icon">
+    <link rel="stylesheet" href="~/Content/channelsStyle.css" media="screen" type="text/css" />
     <link rel="stylesheet" href="~/Content/font-awesome-4.6.3/css/font-awesome.min.css">
     @section scripts
     {
@@ -21,39 +19,44 @@
     }
 </head>
 <body>
-    <p class="button28">@Html.ActionLink("Log out", "Login", "Account")</p>
-    <header align="left" id="smarticon">
-        <img src="~/Content/Images/smart_logo.png" alt="SMARTbusiness">
-    </header>
-    <div class="cont">
-        <p class="info">My conversations</p>
-        <ol class="rounded-list">
-            @foreach (var chl in (IEnumerable<ChannelDTO>)ViewData["Channels"])
-            {
-                <li>@Html.ActionLink(chl.Name, "Index", chl)</li>
-            }
-        </ol>
-        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-        <div class="group-container">
-        <div class="group">
-            @using (Html.BeginForm("Create", "Chat"))
-            {
-                @Html.TextBoxFor(m => m.Name, new { placeholder = "New channel...", @Value = Model.Name })
-                <div class="mainButton">
-                    <input type="submit" id="createChannelSubmit" class="btn btn-default" value="Create channel" />
+    <div id="wrapper">
+        <header>
+            <div id="list1">
+                <ul>
+                    <li>@Html.ActionLink("Profile", "Profile", "Chat")</li>
+                    <li>@Html.ActionLink("Favorite", "Favorites", "Chat")</li>
+                    <li>@Html.ActionLink("Log out", "Login", "Account")</li>
+                </ul>
+            </div>  
+        </header>
+        <div>
+            <h3>My conversations</h3>
+            <div class="list8">
+                <ol>
+                    @foreach (var chl in (IEnumerable<ChannelDTO>)ViewData["Channels"])
+                    {
+                        <li>@Html.ActionLink(chl.Name, "Index", chl)</li>
+                    }
+                </ol>
+           </div>
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+           <section class="webdesigntuts-workshop">
+                <div class="forms">
+                    @using (Html.BeginForm("Create", "Chat"))
+                    {
+                        @Html.TextBoxFor(m => m.Name, new { placeholder = "New channel...", @Value = Model.Name })
+                        <button type="submit">Create</button>
+                    }
+                    @using (Html.BeginForm("Find", "Chat"))
+                    {
+                        @Html.TextBoxFor(m => m.Name, new { placeholder = "Search...", @Value = Model.Name })
+                        <button type="submit">Find</button>
+                    }
                 </div>
-            }
+                
+            </section>
+            
         </div>
-            <div class="group" >
-                @using (Html.BeginForm("Find", "Chat"))
-                {
-                    @Html.TextBoxFor(m => m.Name, new { placeholder = "Existing channel...", @Value = Model.Name })
-                    <div class="mainButton">
-                        <input type="submit" id="findChannelSubmit" class="btn btn-default" value="Find channel" />
-                    </div>
-                }
-            </div>
         </div>
-    </div>
 </body>
 </html>

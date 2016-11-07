@@ -94,6 +94,8 @@ namespace SMARTchatWEB.Controllers
 
         public ActionResult Create(ChannelDTO channel)
         {
+            if (String.IsNullOrEmpty(channel.Name))
+                return RedirectToAction("GetChannels");
             if (channelService.IsExistByName(channel.Name))
             {
                 TempData.Add("ExistError", true);

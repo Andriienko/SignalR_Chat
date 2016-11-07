@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="/Content/font-awesome-4.6.3/css/font-awesome.min.css">
 </head>
 <body>
-    <header align="center">
+    <header class="login_header">
         <img src="/Content/Images/smart_logo.png" alt="SMARTbusiness">
-        <h3>Create your own channels and invite colleagues to them</h3>
+        <h3 >Create your own channels and invite colleagues to them</h3>
     </header>
     <div class="login">
         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))

@@ -70,11 +70,11 @@ $(function () {
             chat.server.disconnect();
         });
 
-        $(".renameChannel").click(function () {
+        $('#renameChannel').click(function () {
             chat.server.renameChannel(formChannelDTO());
         });
         
-        $(".removeChannel").click(function () {
+        $('#removeChannel').click(function () {
             chat.server.removeChannel(formChannelDTO());
         });
 
