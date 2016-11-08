@@ -75,11 +75,53 @@ p {
     /*margin-left: 200px;*/
 }
 
+/*SocialLogin*/
+.soc {
+     width:100%;
+}
+.soc h5 {
+    display:inline-block;
+    position:relative;
+    top:-13px;
+    left:10px;
+    margin-right:25px;
+}
+.soc button {
+    height: 41px;
+    width: 41px;
+    border: none;
+}
+
+.google, .facebook {
+    height:41px;
+    width:41px;
+    display:inline-block;
+    margin-left:5px;
+}
+.goo {
+    background: url('Images/google-plus.png') no-repeat center; 
+    background-size:41px 41px;
+}
+.face {
+    background: url('Images/Facebook.ico') no-repeat center; 
+    background-size:41px 41px;
+}
+/*External Login Page*/
+.external_login {
+    height:100%;
+    width:100%;
+}
+
+/*Register page*/
+
+.login_body, .register,.external_login {
+    background: url(Images/bg4.jpg) repeat;
+}
 
 .login form span {
-	background-color:   #70db70;
+	background-color:#CAFCF9;
 	border-radius: 3px 0px 0px 3px;
-	color: #666666;
+    color: #666666;
 	display: block;
 	float: left;
 	height: 50px;
@@ -126,8 +168,9 @@ p {
 }
 
 .login form input[type="text"],.login form  input[type="password"] {
-	background-color: #80ff80;
+	background-color: #daf4fe;
 	border-radius: 0px 3px 3px 0px;
+    
 	color: #808080;
 	margin-bottom: 1em;
 	padding: 0 10px;
@@ -137,7 +180,7 @@ p {
 #sign input {
     width: 280px;
     border-radius: 3px;
-	background-color:#009933;
+	background-color:#00aeef;
 	color: #eee;
 	font-weight: bold;
 	margin-bottom: 2em;
@@ -146,10 +189,10 @@ p {
 }
 
 
-.mainButton input[type="submit"], #signup input
+.mainButton input[type="submit"]
 {
     width: 250px;
-    border-radius: 6px;
+    border-radius: 3px;
 	background-color:#009933;
 	color: #eee;
 	font-weight: bold;
@@ -181,7 +224,7 @@ p {
   width: 250px;
   margin: 0 0 20px 10px;
   height: 40px;
-  
+  background:#daf4fe;
 }
 		/*chat page*/
 
@@ -341,7 +384,7 @@ font:14px Verdana; }
 	font:bold 14px Verdana;
     margin-top: 10px;
     width: 73%;
-}
+}cont
 
 #messageInfo span, .mailInfo{
 	color: #666666;
@@ -760,7 +803,7 @@ border-bottom: none;
     position: relative;
     margin-left:15%;
 }
-       .mainButton input[type="submit"], #signup input
+.mainButton input[type="submit"], #signup input
 {
     width: 250px;
     border-radius: 6px;

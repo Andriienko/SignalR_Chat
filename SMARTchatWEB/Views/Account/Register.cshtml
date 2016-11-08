@@ -7,22 +7,15 @@
 <html>
 <head>
     <link rel="stylesheet" href="/Content/style.css" media="screen" type="text/css" />
-    <link rel="icon" href="/Content/Images/smart.png" type="image/x-icon">
-    <link rel="shortcut icon" href="/Content/Images/smart.png" type="image/x-icon">
     <link rel="stylesheet" href="/Content/font-awesome-4.6.3/css/font-awesome.min.css">
 </head>
-<body>
-
-    <header align="center">
-        <img src="/Content/Images/smart_logo.png" alt="SMARTbusiness">
-    </header>
-
+<body class="register">
     <h2 align="center">@ViewBag.Title</h2>
 
     @using (Html.BeginForm("Register", "Account", new {ReturnUrl=ViewBag.ReturnUrl},FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        <h4 align="center">The best way for communication in your company</h4>
+        <h4 align="center">The best way for communication with your friends</h4>
         <div class="sign_in" align="center">
             @Html.ValidationSummary("", new { @class = "text-danger" })
             <div class="form-group">
@@ -57,7 +50,7 @@
             </div>
             <div class="form-group">
                 <div class="mainButton">
-                    <input type="submit" class="btn btn-default" value="Sign up" />
+                    <input type="submit"  value="Sign up" />
                 </div>
             </div>
         </div>

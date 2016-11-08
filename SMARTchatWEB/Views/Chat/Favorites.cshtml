@@ -8,16 +8,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/Content/style.css" media="screen" type="text/css" />
-    <link rel="icon" href="/Content/Images/smart.png" type="image/x-icon">
-    <link rel="shortcut icon" href="/Content/Images/smart.png" type="image/x-icon">
+    <link rel="stylesheet" href="~/Content/favoriteStyle.css" media="screen" type="text/css" />
+    @*<link rel="stylesheet" href="/Content/style.css" media="screen" type="text/css" />*@
     <link rel="stylesheet" href="/Content/font-awesome-4.6.3/css/font-awesome.min.css">
 </head>
 <body>
-<header class="smarticon">
-    <p class="button28">@Html.ActionLink("Log out", "Login", "Account")</p>
-    <p class="button28">@Html.ActionLink("Back to chat", "Index", "Chat")</p>
-    <img src="/Content/Images/smart_logo.png" alt="SMARTbusiness">
+<header class="smarti">
+    @Html.ActionLink("Log out", "Login", "Account")
+    @Html.ActionLink("Back to chat", "Index", "Chat")
     <h2 align="center">See your favourite messages from all channels</h2>
 </header>
    
@@ -29,7 +27,7 @@
                     <tr>
                         <td><img src=@String.Concat("data:image/png;base64,",@item.User.Image) alt="User icon" id="user_icon"></td>
                         <td>
-                            <ul>
+                            <ul class="note rounded">
                                 <li id="messageInfo">@item.User.Name&nbsp;&nbsp;<span>@item.SendTime &nbsp;&nbsp;</span><span>@item.Channel.Name</span></li>
                                 <li id="messageText">@item.Content</li>
                             </ul>
@@ -39,6 +37,9 @@
             </table>
         </div>
     </div>
-</div>
+    <div class="note rounded">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pulvinar rhoncus risus, vel ornare lacus sagittis sit amet. Duis vel sem magna. Proin pulvinar velit eleifend ligula ultrices vestibulum. Nunc posuere dolor eu mauris feugiat dignissim.
+    </div>
+
 </body>
 </html>

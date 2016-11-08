@@ -15,14 +15,18 @@
     else {
         using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
             @Html.AntiForgeryToken()
-            <div id="socialLoginList">
-                <p>
-                    @*@ @foreach (AuthenticationDescription p in loginProviders) {
-                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Войти с помощью учетной записи @p.Caption">@p.AuthenticationType</button>
-                    }*@
-                </p>
-                <button type="submit" style="color: #666666; background: transparent; border: none;" class="fa fa-google-plus-square fa-2x" id="@loginProviders.ToArray()[0].AuthenticationType" name="provider" value="@loginProviders.ToArray()[0].AuthenticationType" title="Войти с помощью учетной записи @loginProviders.ToArray()[0].Caption"></button>
-                <button type="submit" style="color: #666666; width: 0; height: 0; background: transparent; border: none;" class="fa fa-facebook-square fa-2x" id="@loginProviders.ToArray()[1].AuthenticationType" name="provider" value="@loginProviders.ToArray()[1].AuthenticationType" title="Войти с помощью учетной записи @loginProviders.ToArray()[1].Caption"></button>
+            <div class="soc">
+               <h5> Log in with</h5>
+                <div class="google">
+                      <button type="submit" class="goo" id="@loginProviders.ToArray()[0].AuthenticationType" name="provider" 
+                      value="@loginProviders.ToArray()[0].AuthenticationType"
+                      title="Войти с помощью учетной записи @loginProviders.ToArray()[0].Caption"></button>
+                </div>
+                <div class="facebook">
+                    <button type="submit" class="face" id="@loginProviders.ToArray()[1].AuthenticationType" name="provider" 
+                            value="@loginProviders.ToArray()[1].AuthenticationType" 
+                            title="Войти с помощью учетной записи @loginProviders.ToArray()[1].Caption"></button>
+                </div>
             </div>
         }
     }

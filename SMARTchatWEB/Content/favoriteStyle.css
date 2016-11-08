@@ -1,0 +1,78 @@
+﻿body {
+  background: url(Images/bg4.jpg) repeat;
+  font-family: 'Open Sans', sans-serif;
+  width:800px; margin:40px auto;
+}
+#user_icon {
+	width: 50px;
+	height: 50px;
+	border-radius: 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.messages{
+	background-color: white;
+	/*border-radius: 10px;*/
+    
+	width: 100%;
+	
+}
+#messageInfo {
+	color: #006600;
+	font:bold 14px Verdana;
+    margin-top: 10px;
+    width: 73%;
+}
+li {
+    list-style-type:none;
+}
+ul {
+    margin-left:0px;
+}
+td {
+    border:1px solid black;
+    text-align:left;
+}
+
+.note {
+    position:relative;
+    width:480px;
+    padding:1em 1.5em;
+    margin:10px;
+    color:#fff;
+    background:#97C02F;
+    overflow:hidden;
+}
+
+.note:before {
+    content:"";
+    position:absolute;
+    top:0;
+    right:0;
+    border-width:0 16px 16px 0; /* This trick side-steps a webkit bug */
+    border-style:solid;
+    border-color:transparent transparent #658E15 #658E15; /* A bit more verbose to work with .rounded too */
+    background:#658E15; /* For Opera when also applying a border-radius */
+    display:block; width:0; /* Only for Firefox 3.0 damage limitation */
+    /* Optional: shadow */
+    -webkit-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+       -moz-box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+            box-shadow:0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.note.rounded {
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+}
+
+.note.rounded:before {
+    border-width:8px; /* Triggers a 1px 'step' along the diagonal in Safari 5 (and Chrome 10) */
+    border-color:#fff #fff transparent transparent; /* Avoids the 1px 'step' in webkit. Background colour shows through */
+    -webkit-border-bottom-left-radius:5px;
+    -moz-border-radius:0 0 0 5px;
+    border-radius:0 0 0 5px;
+}
+
+.note p {margin:0;}
+.note p + p {margin:1.5em 0 0;}
