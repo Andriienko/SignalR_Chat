@@ -11,21 +11,21 @@ namespace SMARTchatWEB.Models
 {
     public class EmailViewModel
     {
-        [Display(Name = "Name")]
+        [Display(Name = "Name*")]
         [Required(ErrorMessage = "Error Name")]
         public string UserName { get; set; }
 
-        [Display(Name = "Email From")]
+        [Display(Name = "Email From*")]
         [Required(ErrorMessage = "Error Email")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Error email")]
         public string EmailFrom { get; set; }
 
-        [Display(Name = "Email To")]
+        [Display(Name = "Email To*")]
         [Required(ErrorMessage = "Error Email")]
         [DataType(DataType.EmailAddress, ErrorMessage = "Error email")]
         public string EmailTo { get; set; }
 
-        [Display(Name = "Enter Subject")]
+        [Display(Name = "Enter Subject*")]
         [Required(ErrorMessage = "Error Name")]
         public string Subject { get; set; }
 

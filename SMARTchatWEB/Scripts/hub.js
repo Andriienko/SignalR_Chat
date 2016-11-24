@@ -53,6 +53,7 @@ $(function () {
 
     chat.client.onChannelRename = function (channel) {
         $('#channelName').val(channel.Name);
+        $('#ch_name').text(channel.Name);
     }
 
     chat.client.onChannelRemove = function () {
@@ -73,6 +74,11 @@ $(function () {
         $('#renameChannel').click(function () {
             chat.server.renameChannel(formChannelDTO());
         });
+        $('.rename_icon').click(function () {
+
+            $('#edit_box').toggle();
+            
+            });
         
         $('#removeChannel').click(function () {
             chat.server.removeChannel(formChannelDTO());
@@ -143,30 +149,58 @@ function AddUser(user) {
         + user.Name + '</span></li>');
 };
 
+//function AddMessage(message) {
+//    var usrImg = '<img src="data:image/png;base64,' + message.User.Image + '" alt="User icon" id="user_icon">';
+//    var msgHead = '<li id="messageInfo">' + '<a href="#" class="userInfo">'+ message.User.Name + '</a>'
+//        + '<span>&nbsp;&nbsp;' + message.SendTime + '</span></li>';
+
+//    var msgBody = '<li id="messageText">' + message.Content + '</li>';
+//    if (message.Parents && message.Parents.length > 0) {
+//        msgBody = '<li id="messageQuotes">' + MessageHistory(message) + '</li>' + msgBody;
+//    }
+
+//    var msgEdit = '<button type="button" class="editMessage" ><span class="fa fa-pencil" aria-hidden="true"></span></button>';
+//    var msgDelete = '<button type="button" class="deleteMessage"><span class="fa fa-trash" aria-hidden="true"></span></button>';
+//    var msgFavourite = '<button type="button" class="markFavourite"><span class="fa fa-star" aria-hidden="true"></span></button>';
+//    var msgSelect = '<button type="button" class="selectMessage"><span class="fa fa-reply" aria-hidden="true"></span></button>';
+
+//    var stringBuilder = '<tr class="messageBlock" id="' + message.MessageId
+//        + '"><td class="avatar" valign="top">' + usrImg + '</td>'
+//        + '<td class="mailInfo" valign="top"><ul>' + msgHead + msgBody + '</ul></td>';
+//    if (message.User.Id ==  $('#userId').val()) {
+//        stringBuilder += '<td valign="top" class="msg_btns">' + msgSelect + msgFavourite + msgEdit + msgDelete + '</td>';
+//    }
+//    else {
+//        stringBuilder += '<td valign="top" class="msg_btns">' + msgSelect + msgFavourite + '</td>';
+//    }
+//    stringBuilder += '</tr>';
+//    $('.messages').append(stringBuilder);
+//};
+
 function AddMessage(message) {
     var usrImg = '<img src="data:image/png;base64,' + message.User.Image + '" alt="User icon" id="user_icon">';
-    var msgHead = '<li id="messageInfo">' + '<a href="#" class="userInfo">'+ message.User.Name + '</a>'
-        + '<span>&nbsp;&nbsp;' + message.SendTime + '</span></li>';
+    var msgHead = '<li id="messageInfo">' + '<a href="#" class="userInfo">' + message.User.Name + '</a>'
+        + '<span>&nbsp;&nbsp;' + message.SendTime + '</span>';
 
     var msgBody = '<li id="messageText">' + message.Content + '</li>';
     if (message.Parents && message.Parents.length > 0) {
         msgBody = '<li id="messageQuotes">' + MessageHistory(message) + '</li>' + msgBody;
     }
 
-    var msgEdit = '<button type="button" class="editMessage" > <span class="fa fa-pencil" aria-hidden="true"></span></button>';
-    var msgDelete = '<button type="button" class="deleteMessage"> <span class="fa fa-trash" aria-hidden="true"></span></button>';
-    var msgFavourite = '<button type="button" class="markFavourite"> <span class="fa fa-star" aria-hidden="true"></span></button>';
-    var msgSelect = '<button type="button" class="selectMessage"> <span class="fa fa-reply" aria-hidden="true"></span></button>';
-
-    var stringBuilder = '<tr class="messageBlock" id="' + message.MessageId
-        + '"><td class="avatar" valign="top">' + usrImg + '</td>'
-        + '<td class="mailInfo" valign="top"><ul>' + msgHead + msgBody + '</ul></td>';
-    if (message.User.Id ==  $('#userId').val()) {
-        stringBuilder += '<td valign="top">' + msgSelect + msgFavourite + msgEdit + msgDelete + '</td>';
+    var msgEdit = '<button type="button" class="editMessage" ></button>';
+    var msgDelete = '<button type="button" class="deleteMessage"></button>';
+    var msgFavourite = '<button type="button" class="markFavourite"></button>';
+    var msgSelect = '<button type="button" class="selectMessage"></button>';
+       
+    if (message.User.Id == $('#userId').val()) {
+        msgHead += '<div  class="msg_btn">' + msgSelect + msgFavourite + msgEdit + msgDelete + '</div></li>';
     }
     else {
-        stringBuilder += '<td valign="top">' + msgSelect + msgFavourite + '</td>';
+        msgHead += '<div  class="msg_btn">' + msgSelect + msgFavourite + '</div></li>';
     }
+    var stringBuilder = '<tr class="messageBlock" id="' + message.MessageId
+        + '"><td class="avatar" valign="top">' + usrImg + '</td>'
+        + '<td class="mailInfo"><ul>' + msgHead + msgBody + '</ul></td>';
     stringBuilder += '</tr>';
     $('.messages').append(stringBuilder);
 };

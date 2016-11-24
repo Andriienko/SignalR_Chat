@@ -1,38 +1,144 @@
 ﻿body {
   background: url(Images/bg4.jpg) repeat;
   font-family: 'Open Sans', sans-serif;
-  width:800px; margin:40px auto;
+  width:800px; margin:0px auto;
 }
+h2 {
+    color:white;
+    font-family:Georgia,serif,Times; 
+    font-size:25px;
+    margin-top:40px;
+    
+}
+h2:after {
+    content: '';
+	display: block;	
+	height: 1px;
+	
+    position: absolute;
+	width: 600px;
+	background: #000;
+	background: -webkit-linear-gradient(left, #151515, #000, #151515);	
+	background: -moz-linear-gradient(left, #151515, #000, #151515);	
+	background: -o-linear-gradient(left, #151515, #000, #151515);	
+	background: -ms-linear-gradient(left, #151515, #000, #151515);	
+	background: linear-gradient(left, #151515, #000, #151515);	
+	top: 180px;
+    left: 380px;
+}
+
+
 #user_icon {
-	width: 50px;
-	height: 50px;
+	width: 70px;
+	height: 70px;
 	border-radius: 8px;
-    margin-left: 10px;
-    margin-top: 10px;
+    float:right;
+}
+.avatar {
+    padding:0;
+    margin:0 auto;
 }
 .messages{
-	background-color: white;
-	/*border-radius: 10px;*/
-    
-	width: 100%;
-	
+	background-color: transparent;
+	border-spacing: 0;
+	width: 85%;
+    margin-left:75px;
+    margin-top:30px;
+	/*border-collapse:separate;*/
+}
+.messages tr {
+    /*border:1px solid black;*/
+    border-radius:5px;
+    background-color:transparent;
 }
 #messageInfo {
 	color: #006600;
 	font:bold 14px Verdana;
-    margin-top: 10px;
+    margin-top: 5px;
     width: 73%;
+}
+#messageText {
+    max-width:450px;
+    word-wrap:break-word;
 }
 li {
     list-style-type:none;
 }
 ul {
-    margin-left:0px;
+    margin-left: 0px;
 }
 td {
-    border:1px solid black;
-    text-align:left;
+    /*border-right:1px solid black;*/
+    padding:0px;
+    max-width:450px;
+    background-color:transparent;
 }
+.avabox {
+    width:90px;
+    padding:0;
+}
+
+/*.messages{
+	background-color: white;
+	border-radius: 10px;
+    
+	width: 100%;
+	position: relative;
+    border-spacing: 0;
+}
+
+.messages tr {
+    box-shadow: 1px -1px 41px -4px white inset;
+    border-radius: 10px;
+        border-left: 1px solid #3385ff;
+    border-top: 1px solid #3385ff;
+    
+    margin-top: 2px;
+    height: 70px;
+
+}
+
+#messageInfo, .mailInfo{
+	color: #006600;
+	font:bold 14px Verdana;
+    margin-top: 10px;
+    width: 73%;
+}
+
+#messageInfo span, .mailInfo{
+	color: #666666;
+	font:15px Verdana;
+}
+
+#messageText{
+	color: #333333;
+	font:15px Georgia;
+    position: relative;
+    width: 85%;
+    max-width: 450px;
+    word-wrap: break-word;
+    height: auto;
+
+}
+
+#user_icon{
+	width: 50px;
+	height: 50px;
+	border-radius: 8px;
+    margin-left: 8px;
+    margin-top: 10px;
+    
+}
+
+.avatar {
+    border:1px solid red;
+    width:70px;
+    height:70px;
+    position:relative;
+    top:0px;
+    left:10px;
+    vertical-align:sub;
+}*/
 
 .note {
     position:relative;
@@ -51,7 +157,7 @@ td {
     right:0;
     border-width:0 16px 16px 0; /* This trick side-steps a webkit bug */
     border-style:solid;
-    border-color:transparent transparent #658E15 #658E15; /* A bit more verbose to work with .rounded too */
+    border-color:#658E15 #658E15 #658E15 #658E15; /* A bit more verbose to work with .rounded too */
     background:#658E15; /* For Opera when also applying a border-radius */
     display:block; width:0; /* Only for Firefox 3.0 damage limitation */
     /* Optional: shadow */
@@ -68,7 +174,7 @@ td {
 
 .note.rounded:before {
     border-width:8px; /* Triggers a 1px 'step' along the diagonal in Safari 5 (and Chrome 10) */
-    border-color:#fff #fff transparent transparent; /* Avoids the 1px 'step' in webkit. Background colour shows through */
+    border-color:transparent transparent transparent transparent; /* Avoids the 1px 'step' in webkit. Background colour shows through */
     -webkit-border-bottom-left-radius:5px;
     -moz-border-radius:0 0 0 5px;
     border-radius:0 0 0 5px;
@@ -76,3 +182,22 @@ td {
 
 .note p {margin:0;}
 .note p + p {margin:1.5em 0 0;}
+
+.lightbox {
+    background-color: white;
+    -moz-background-clip: padding; /* Firefox 3.6 */
+    -webkit-background-clip: padding; /* Safari 4? Chrome 6? */
+    background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+    border: 20px solid rgba(0,0,0,0.3);
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    padding: 30px;
+    width: 450px;
+}
+#list1 {/*position:relative; top:-60px;*/ }
+#list1 ul { list-style:none; text-align:center; border-top:1px solid #eee; border-bottom:1px solid #eee; padding:10px 0; }
+#list1 ul li { display:inline; text-transform:uppercase; padding:0 10px; letter-spacing:10px; }
+#list1 ul li a { text-decoration:none; color:#eee; }
+#list1 ul li a:hover { text-decoration:underline; }
+#list1 ul li:last-child {  margin-left:250px; }

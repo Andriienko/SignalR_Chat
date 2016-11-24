@@ -11,41 +11,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SMARTchat | Сhat</title>
     <link rel="stylesheet" href="~/Content/style.css" media="screen" type="text/css"/>
-    <link rel="icon" href="~/Content/Images/smart.png" type="image/x-icon">
-    <link rel="shortcut icon" href="~/Content/Images/smart.png" type="image/x-icon">
-    <link rel="stylesheet" href="~/Content/font-awesome-4.6.3/css/font-awesome.min.css">
 </head>
-<body>
-    <p class="button28">@Html.ActionLink("Log out", "Login", "Account")</p>
-<p class="button28">@Html.ActionLink("Back to chat", "Index", "Chat")</p>
-
-<header align="left" id="smarticon">
-    <img src="~/Content/Images/smart_logo.png" alt="SMARTbusiness">
-</header>
-
-<div id="container">
+<body class="profile-wrap">
+        
+        <header align="left" id="profile_head">
+            @*<img src="~/Content/Images/fires.jpg" alt="SMARTbusiness">*@
+            <div  class="prof_nav"><ul>
+                <li>@Html.ActionLink("Conversations", "Index", "Chat")</li>
+                <li>@Html.ActionLink("Log out", "Login", "Account")</li>
+            </ul></div>
+        </header>
+    
+<div id="prof_container">
     <p class="info">User Information</p>
-    <div id="avatar" class="container">
-        @Html.Raw("<img style: width='200px' height='200px' src=\"data:image/jpeg;base64,"
-                  + Model.Image + "\" />")
+        <div class="first">
+        <div id="li">
+            <strong>  <p>Name:</p></strong>
+            <strong><p>Last Name:</p></strong>
+            <strong> <p>Email:</p></strong>
+        </div>
+        <div id="st">
+            <span>@Model.Name</span>
+            <span>@Model.LastName</span>
+            <span>@Model.Email</span>
+        </div>
+    </div>
+        
+    <div id="avatar">
+       <div id="ava"> @Html.Raw("<img style: width='200px' height='220px' src=\"data:image/jpeg;base64,"
+                  + Model.Image + "\" />") <p>@Model.Name</p></div>
         @using (Html.BeginForm("Profile", "Chat",
             FormMethod.Post, new {enctype = "multipart/form-data"}))
         {
-            <div class="container">
+            <div class="btn_container">
                 <label class="file_upload">
-                    <span class="button">Choose photo</span>
-                    <mark>No photo</mark>
+                    <button class="submit">Load</button>
                     <input type="file" name="Image">
                 </label>
-                <input class="submit" type="submit" value="Open and save"/>
+                <input class="submit" type="submit" value="Save"/>
             </div>
         }
     </div>
-    <ul class="first">
-        <li id="userName">Name:<span>@Model.Name</span></li>
-        <li id="userLName">Last Name:<span>@Model.LastName</span></li>
-        <li id="userEmail">Email:<span>@Model.Email</span></li>
-    </ul>
 </div>
 <script type="text/javascript">
     $(function () {

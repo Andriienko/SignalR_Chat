@@ -11,16 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SMARTchat | Сhat</title>
     <link rel="stylesheet" href="~/Content/style.css" media="screen" type="text/css" />
-    <link rel="icon" href="~/Content/Images/smart.png" type="image/x-icon">
-    <link rel="shortcut icon" href="~/Content/Images/smart.png" type="image/x-icon">
     <link rel="stylesheet" href="~/Content/font-awesome-4.6.3/css/font-awesome.min.css">
-    
-    
-    <script src="~/Scripts/shCore.js"></script>
-    <script src="~/Scripts/shBrushJScript.js"></script>
-    <script src="~/Scripts/shBrushCSharp.js"></script>
-    @*<link href="~/Content/shCore.css" rel="stylesheet" type="text/css" />*@
-    @*<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />*@
     @section scripts
     {
         @Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
@@ -33,51 +24,49 @@
 <body>
 <header class="smarticon">
     @*<img src="~/Content/Images/Vaultboy1.jpg" alt="NightMegapolice">*@
-    <h2>Chat</h2>
-    <span class="button28">@Html.ActionLink("Log out", "Login", "Account")</span>
+    <strong id="ch_name">@Html.DisplayFor(m => m.Name)</strong>
+    <button class="delete_icon" id="removeChannel"></button>
+    <button class="rename_icon" ></button>
+    <div id="edit_box"><input type="text" id="channelName" value="@Model.Name"/><button class="rename_ok" id="renameChannel"></button></div>
+    <span class="log">@Html.ActionLink("Log out", "Login", "Account")</span>
 </header>
-    <div id="sidebar">
-        <ul>
-            <li>@Html.ActionLink("Invite friend", "Create", "SendEmail", @Model, FormMethod.Get)</li>
-        </ul>
-        <ul class="users"></ul>
-    </div>
-    <div class="chatContainer">
-        
-        <div class="main-content">
-            <div class="chat_name">
-                @Html.DisplayFor(m => m.ChannelId)
-                @Html.TextBoxFor(m => m.Name, new { id = "channelName" })
-                <button type="button" id="renameChannel" class="w8-button green">Rename @*<span class="fa fa-pencil-square-o" aria-hidden="true"></span>*@</button>
-                <button type="button" id="removeChannel" class="w8-button red">Delete @*<span class="fa fa-trash" aria-hidden="true"></span>*@</button>
-            </div>
-            <div>
+    <div class="chat-wrap">
+        <div id="sidebar">
+            <ul class="users"></ul>
+        </div>
+        <div class="chatContainer">
+                @*<div class="chat_name">
+                    @Html.DisplayFor(m => m.ChannelId)
+                    @Html.TextBoxFor(m => m.Name, new { id = "channelNam" })
+                    <button type="button"  class="w8-button green">Rename</button>
+                    <button type="button"  class="w8-button red">Delete</button>
+                </div>*@
                 <div id="messagebox">
                     <table class="messages"></table>
                 </div>
-                <div class="footer-panel">
-                    <form>
-                        @*<button type="button" class="addCode"> <span class="fa fa-code fa-2x" aria-hidden="true"></span></button>*@
-                        <textarea id="message" wrap="virtual" placeholder="Type your message here..."></textarea>
-                        <span id="send">
-                            <input id="sendMessage" type="button" value="Send" />
-                            <input id="sendEditedMessage" type="button" value="Save changes" style="display: none;" />
-                            <input id="userId" type="hidden" value="" />
-                            <input id="userName" type="hidden" value="" />
-                            <input id="userImage" type="hidden" value="" />
-                        </span>
-                    </form>
-                </div>
-            </div>
+                    <div class="footer-panel">
+                        <form>
+                            @*<button type="button" class="addCode"> <span class="fa fa-code fa-2x" aria-hidden="true"></span></button>*@
+                            <textarea id="message" wrap="virtual" placeholder="Type your message here..."></textarea>
+                            <span id="send">
+                                <input id="sendMessage" type="button" value="Send" />
+                                <input id="sendEditedMessage" type="button" value="Save changes" style="display: none;" />
+                                <input id="userId" type="hidden" value="" />
+                                <input id="userName" type="hidden" value="" />
+                                <input id="userImage" type="hidden" value="" />
+                            </span>
+                        </form>
+                    </div>
         </div>
-    </div>
 
-    <div id="rightsidebar">
-        <ul>
-            <li>@Html.ActionLink("My profile", "Profile", "Chat")</li>
-            <li>@Html.ActionLink("My favorite messages", "Favorites", "Chat")</li>
-            <li>@Html.ActionLink("Conversations", "GetChannels", "Chat")</li>
-        </ul>
+        <div id="rightsidebar">
+            <ul>
+                <li id="profile_icon">@Html.ActionLink("My profile", "Profile", "Chat")</li>
+                <li id="favorite_icon">@Html.ActionLink("Favorite", "Favorites", "Chat")</li>
+                <li id="convers_icon">@Html.ActionLink("Conversations", "GetChannels", "Chat")</li>
+                <li id="invite_icon">@Html.ActionLink("Invite Friend", "Create", "SendEmail", @Model, FormMethod.Get)</li>
+            </ul>
+        </div>
     </div>
     @Html.HiddenFor(m => m.ChannelId, new { id = "channelId" })
     @Html.HiddenFor(m => m.Name, new { id = "channelName" })
